@@ -1,0 +1,155 @@
+/* This is a mess
+Do i intend to fix it?
+fuck no */
+
+body {
+  font-size: 16px;
+  background-size:cover;
+  color: white;
+  cursor: crosshair;
+  user-select: none;
+  background-position: center-bottom;
+  background-attachment: fixed;
+}
+
+h1,
+nav,
+article,
+footer,
+p, span, form {
+  z-index: 2;
+}
+
+#background {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, 
+    #7474E0 0%, #7474E0 25%, 
+    #4F4F99 25%, #4F4F99 50%, 
+    #262669 50%, #262669 75%, 
+    #1b1b66 75%, #1b1b66 100%);
+  background-size: 300% 300%; /* Increase background size for the animation */
+  animation: waveAnimation 20s infinite alternate ease-in-out; /* Infinite alternate ease-in-out animation for smooth effect */
+}
+
+@keyframes waveAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.bubble {
+  position: absolute;
+  background-color: green;
+  border-radius: 50%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cursor-glow {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1; /* ensure higher z-index than bubbles */
+  width: 0;
+  height: 0;
+  box-shadow: 0 0 30px 20px rgba(255, 105, 180, 0.7), /* pink glow */
+              0 0 60px 40px rgba(255, 105, 180, 0.5),
+              0 0 90px 60px rgba(255, 105, 180, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover{
+  font-style: italic;
+  color: pink;
+}
+
+a img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  filter: blur(6px);
+}
+
+h1 {
+  font-style: italic;
+  font-size: 48px;
+  text-align: center;
+}
+
+nav {
+  background-color: gray;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+nav:hover {
+  color: blue;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+article {
+  text-align: center;
+  margin: auto;
+}
+
+footer {
+  color: white;
+  display: block;
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: small;
+  font-weight: 100;
+  position: absolute; /* Update the position */
+  bottom: 0; /* Set the footer to stick to the bottom */
+  left: 0;
+  right: 0;
+}
+
+#hesleep {
+  position: absolute;
+  z-index: 2;
+  transition: opacity 0.5s;
+  padding-top:20px;
+}
+
+#hesleep:hover {
+  opacity: 0;
+}
+
+#nosleep {
+  position: absolute;
+  z-index: 1; /* Update the z-index */
+  transition: opacity 0.5s;
+  padding-top:20px;
+}
+
+#nosleep:hover {
+  opacity: 1;
+}
+
+#flash-image{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
