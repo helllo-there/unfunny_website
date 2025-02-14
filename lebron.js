@@ -1,27 +1,27 @@
 const image = document.getElementById("flash-image");
-const audioLebron = new Audio("images/you_are_my_sunshine.mp3");
+const audioLebron = new Audio("images/vineboom.mp3");
 
 function flashImage(img) {
-  img.style.opacity = "1"; // Make image appear quickly
+  img.style.opacity = "1";
   setTimeout(() => {
-    img.style.transition = "opacity 0.4s"; // Fade out effect
+    img.style.transition = "opacity 0.4s";
     img.style.opacity = "0";
     setTimeout(() => {
-      img.style.display = "none"; // Completely hide the image
+      img.style.display = "none";
       if (img === image) {
-        audioLebron.pause(); // Stop lebron_sun audio when image is completely invisible
+        audioLebron.pause();
       }
-      flashRandomly(); // Call flashRandomly to start next flash
+      flashRandomly();
     }, 400); // Hide image after 0.35 seconds
   }, 10); // Start fading out after 10 milliseconds
 }
 
 function flashRandomly() {
-  const randomTime = getRandomInt(60) * 1000;
+  const randomTime = getRandomInt(60) * 10000;
   setTimeout(() => {
-    image.style.display = "block"; // Show lebron_sun.png
+    image.style.display = "block";
     flashImage(image);
-    audioLebron.play(); // Play lebron_sun audio
+    audioLebron.play();
   }, randomTime);
 }
 

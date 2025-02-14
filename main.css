@@ -1,0 +1,146 @@
+/* This is a mess
+Do i intend to fix it?
+fuck no */
+
+body {
+  font-size: 16px;
+  color: white;
+  background-color: #0043bf;
+  user-select: text;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+::selection {
+  background: var(--highlight-color);
+}
+:root {
+  --highlight-color: null;
+}
+
+#background {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.bubble {
+  position: absolute;
+  background-color: green;
+  border-radius: 50%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+a {
+  color: rgb(146, 0, 0);
+  text-decoration: none;
+}
+a:hover{
+  font-style: italic;
+  color: pink;
+}
+
+h1 {
+  font-style: italic;
+  font-size: 48px;
+  text-align: center;
+}
+
+#grid {
+  text-align: center;
+  align-items: center;
+  align-self: center;
+  padding: 1%;
+  margin: 3%;
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  grid-gap: 10%;
+}
+#gridbox {
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 1%;
+  margin: 3%;
+  border-radius: 10px;
+  width: fit-content;
+  display: block;
+}
+
+#repo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 grid */
+  grid-gap: 20px;
+  width: 80%; /* Adjust as needed */
+  max-width: 800px;
+  margin: auto; /* Center it */
+}
+
+.repo-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid white;
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 300px; /* Ensure width is maintained */
+  max-width: 400px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.repo-box a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+
+#footer {
+  color: white;
+  background-color: black;
+  text-align: center;
+  font-size: small;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: fixed; /* Allows normal scrolling */
+}
+#hesleep {
+  position: fixed;
+  z-index: 2;
+  transition: opacity 0.5s;
+  padding:10px;
+  left: 0;
+}
+#hesleep:hover {
+  opacity: 0;
+}
+#nosleep {
+  position: fixed;
+  z-index: 1;
+  transition: opacity 0.5s;
+  padding:10px;
+  left: 0;
+}
+#nosleep:hover {
+  opacity: 1;
+}
+#flash-image{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
