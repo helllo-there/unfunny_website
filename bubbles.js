@@ -1,15 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const cursorGlow = document.createElement('div');
-  cursorGlow.classList.add('cursor-glow');
-  document.body.appendChild(cursorGlow);
 
   const bubbleColors = ['#64ffda', '#00e676', '#76ff03'];
   const bubbleSpeed = 0.1; // Speed at which bubbles move (percentage of screen width per frame)
   const bubbleSpawnRate = 200; // Interval for spawning new bubbles (milliseconds)
   const initialBubbleCount = 50; // Initial number of bubbles to spawn
-
-  let lastMouseX = window.innerWidth / 2;
-  let lastMouseY = window.innerHeight / 2;
 
   // Function to spawn a single bubble
   function spawnBubble(initial = false) {
@@ -59,15 +53,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }, 16);
   }
-
-  document.addEventListener('mousemove', function (e) {
-    const mouseX = e.clientX;
-    const mouseY = e.clientY;
-    cursorGlow.style.left = `${mouseX}px`;
-    cursorGlow.style.top = `${mouseY}px`;
-  });
-
-  setInterval(() => {
-    updateBubbleGlow(lastMouseX, lastMouseY);
-  }, 16);
 });

@@ -55,22 +55,41 @@ h1 {
   text-align: center;
   align-items: center;
   align-self: center;
-  padding: 1%;
+  padding: 2%;
   margin: 3%;
-  display: grid;
-  grid-template-columns: 5fr 4fr;
-  grid-gap: 10%;
+  display: flex; /* Change from grid to flex for better centering */
+  justify-content: center;
+  gap: 40px; /* More spacing between the image and text box */
+  flex-wrap: wrap;
 }
 #gridbox {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.85); /* Slight transparency */
+  padding: 20px; /* More padding */
+  border-radius: 15px; /* Smoother edges */
+  width: 350px; /* Increase width slightly */
   text-align: center;
-  border: 2px solid rgb(0, 0, 0);
-  padding: 1%;
-  margin: 3%;
-  border-radius: 10px;
-  width: fit-content;
-  display: block;
 }
+#gridbox img {
+  width: 220px; /* Slightly larger */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5); /* Adds depth */
+}
+#gridbox b img {
+  display: block;
+  margin: 0 auto 10px; /* Centers the flag and adds spacing */
+}
+#gridbox a {
+  font-size: 18px; /* Bigger font */
+  color: #ff4d4d; /* Brighter red */
+  font-weight: bold;
+  text-decoration: underline;
+}
+#gridbox:hover {
+  transform: scale(1.005); /* Slightly enlarges */
+  transition: transform 0.2s ease-in-out;
+}
+
 
 #repo-grid {
   display: grid;
@@ -86,7 +105,7 @@ h1 {
   border: 2px solid white;
   padding: 15px;
   border-radius: 10px;
-  min-width: 300px; /* Ensure width is maintained */
+  min-width: 300px;
   max-width: 400px;
   height: 200px;
   text-align: center;
@@ -94,6 +113,15 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  position: relative;
+  will-change: transform;
+}
+
+/* Box will hover above other elements when zoomed */
+.repo-box:hover {
+  box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.3);
+  z-index: 10;
 }
 
 .repo-box a {
@@ -143,4 +171,9 @@ h1 {
   top: 0;
   left: 0;
   z-index: 3;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* teehee no scroll bar*/
 }
