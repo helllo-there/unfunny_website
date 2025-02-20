@@ -55,9 +55,43 @@
 
     <div>
       <h1>List of cool websites (beta):</h1>
-      <div id="sitelist" style="border-color: red;">
-        hi <br>hi <br>hi <br>hi <br>hi <br>hi <br> Note that the border is supposed to fit the content
-      </div>
+      <div id="sitelist-container">
+        <div class="sitelist-box" style="--border-color: red;">
+          <div class="sitelist-border"></div> <!-- Separate border div -->
+          <div class="sitelist-title">Tools:</div>
+          <div class="sitelist-content">Content</div>
+        </div>
+      
+        <div class="sitelist-box" style="--border-color: blue;">
+          <div class="sitelist-border"></div>
+          <div class="sitelist-title">Games:</div>
+          <div class="sitelist-content">Content</div>
+        </div>
+      
+        <div class="sitelist-box" style="--border-color: green;">
+          <div class="sitelist-border"></div>
+          <div class="sitelist-title">Cool code:</div>
+          <div class="sitelist-content">Content</div>
+        </div>
+      
+        <div class="sitelist-box" style="--border-color: yellow;">
+          <div class="sitelist-border"></div>
+          <div class="sitelist-title">MISC:</div>
+          <div class="sitelist-content">Content</div>
+        </div>
+      
+        <div class="sitelist-box" style="--border-color: purple;">
+          <div class="sitelist-border"></div>
+          <div class="sitelist-title">Programming related:</div>
+          <div class="sitelist-content">Content</div>
+        </div>
+      
+        <div class="sitelist-box" style="--border-color: orange;">
+          <div class="sitelist-border"></div>
+          <div class="sitelist-title">Image editing:</div>
+          <div class="sitelist-content">Content</div>
+        </div>
+      </div>      
     </div>
 
     <br>ok bye get out
@@ -78,5 +112,6 @@
     <script src="background.js"></script>
     <script src="select.js"></script>
     <script src="github repos.js"></script>
+    <script src="sitelist.js"></script>
   </body>
 </html>
