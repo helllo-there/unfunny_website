@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Site List</title>
+    </head>
+    <body>
+        <script>
+            // Function to fetch and parse the CSV file
+            async function loadCSV(filePath) {
+            const response = await fetch(filePath);
+            const data = await response.text();
+            return data.split('\n').filter(line => line.trim() !== '');
+            }
+
+            // Function to generate HTML elements from the links
+            function generateLinkElements(links) {
+            const container = document.createElement('div');
+            container.id = 'links-container';
+
+            links.forEach(link => {
+                const anchor = document.createElement('a');
+                anchor.href = link.trim();
+                anchor.textContent = link.trim();
+                anchor.target = '_blank';
+                anchor.style.display = 'block';
+                anchor.style.margin = '5px 0';
+                container.appendChild(anchor);
+            });
+
+            document.body.appendChild(container);
+            }
+
+            // Main function to run on page load
+            document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const links = await loadCSV('https://helllo-there.github.io/unfunny_website/sitelist.csv');
+                generateLinkElements(links);
+            } catch (error) {
+                console.error('Error loading CSV:', error);
+            }
+            });
+        </script>
+    </body>
+</html>
