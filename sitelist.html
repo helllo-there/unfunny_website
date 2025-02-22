@@ -1,43 +1,87 @@
 <html>
-    <head>
-        <title>Site List</title>
-    </head>
-    <body>
-        <script>
-            // Function to fetch and parse the CSV file
-            async function loadCSV(filePath) {
-            const response = await fetch(filePath);
-            const data = await response.text();
-            return data.split('\n').filter(line => line.trim() !== '');
-            }
+  <head>
+    <title>Site List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        background-color: #0043bf;
+      }
 
-            // Function to generate HTML elements from the links
-            function generateLinkElements(links) {
-            const container = document.createElement('div');
-            container.id = 'links-container';
+      #links-container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        margin-bottom: 40px; /* Add space at the bottom */
+      }
 
-            links.forEach(link => {
-                const anchor = document.createElement('a');
-                anchor.href = link.trim();
-                anchor.textContent = link.trim();
-                anchor.target = '_blank';
-                anchor.style.display = 'block';
-                anchor.style.margin = '5px 0';
-                container.appendChild(anchor);
-            });
+      a {
+        text-decoration: none;
+        color: #0043bf;
+        font-weight: bold;
+      }
 
-            document.body.appendChild(container);
-            }
+      a:hover {
+        color: #07307c;
+      }
 
-            // Main function to run on page load
-            document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const links = await loadCSV('https://helllo-there.github.io/unfunny_website/sitelist.csv');
-                generateLinkElements(links);
-            } catch (error) {
-                console.error('Error loading CSV:', error);
-            }
-            });
-        </script>
-    </body>
+      #download-link {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="links-container">
+      <!-- CSV Download Link -->
+      <a id="download-link" href="https://helllo-there.github.io/unfunny_website/sitelist.csv" download>
+        📥 Download CSV File
+      </a> <br>
+    </div>
+
+    <script>
+      // Function to fetch and parse the CSV file
+      async function loadCSV(filePath) {
+        const response = await fetch(filePath);
+        const data = await response.text();
+        return data.split('\n').filter(line => line.trim() !== '');
+      }
+
+      // Function to generate HTML elements from the links
+      function generateLinkElements(links) {
+        const container = document.getElementById('links-container');
+
+        links.forEach(link => {
+          const anchor = document.createElement('a');
+          anchor.href = link.trim();
+          anchor.textContent = link.trim();
+          anchor.target = '_blank';
+          anchor.style.display = 'block';
+          anchor.style.margin = '8px 0';
+          container.appendChild(anchor);
+        });
+      }
+
+      // Main function to run on page load
+      document.addEventListener('DOMContentLoaded', async () => {
+        try {
+          const links = await loadCSV('https://helllo-there.github.io/unfunny_website/sitelist.csv');
+          generateLinkElements(links);
+        } catch (error) {
+          console.error('Error loading CSV:', error);
+        }
+      });
+    </script>
+  </body>
 </html>
