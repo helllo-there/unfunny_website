@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const background = document.getElementById('background');
 
   // Detect logical processors
-  const lowEndDevice = navigator.hardwareConcurrency <= 2;
+  const lowEndDevice = navigator.hardwareConcurrency <= 4;
   if (lowEndDevice) return; // Disable bubbles on low-end devices
 
   const bubbleColors = ['#64ffda', '#00e676', '#76ff03'];

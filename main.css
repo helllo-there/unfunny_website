@@ -240,9 +240,17 @@ h1 {
   white-space: nowrap;
 }
 
-/* Content inside the box */
-.sitelist-content {
-  position: relative;
+.sitelist-content a {
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block; /*my saviour*/
+  max-width: 100%;
+  font-size: 14px;
+}
+
+.sitelist-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Responsive Styling */
