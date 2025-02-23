@@ -1,3 +1,4 @@
+// notice how the border is cut off at the title? its done using a polygon clip-path. This script calculates how big that polygon needs to be depending on the size of the title.
 document.addEventListener("DOMContentLoaded", function () {
     const BORDER_CUT_MARGIN = 5; // Adjust this to control border cut distance from title
   
