@@ -45,7 +45,7 @@
   <body>
     <div id="links-container">
       <!-- CSV Download Link -->
-      <a id="download-link" href="https://helllo-there.github.io/unfunny_website/sitelist.csv" download> <!--so im loading it from here and not from local files cuz when i did that it didn't work?? CORS policy is a bitch sometimes-->
+      <a id="download-link" href="https://helllo-there.github.io/unfunny_website/files/sitelist.csv" download> <!--so im loading it from here and not from local files cuz when i did that it didn't work?? CORS policy is a bitch sometimes-->
         📥 Download CSV File
       </a> <hr>
     </div>
@@ -76,7 +76,7 @@
       // Main function to run on page load
       document.addEventListener('DOMContentLoaded', async () => {
         try {
-          const links = await loadCSV('https://helllo-there.github.io/unfunny_website/sitelist.csv');
+          const links = await loadCSV('https://helllo-there.github.io/unfunny_website/files/sitelist.csv');
           generateLinkElements(links);
         } catch (error) {
           console.error('Error loading CSV:', error);
